@@ -33,6 +33,11 @@ public class AccountManager{
 		return this.accountRepository.findByAccountNumber(accountNumber);
 	}
 
+	public Object debit(String accountNumber, @NonNull Double amount) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 	
 	
