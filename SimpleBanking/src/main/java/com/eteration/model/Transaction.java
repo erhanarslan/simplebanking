@@ -25,53 +25,47 @@ import lombok.NonNull;
 
 //This class is a place holder you can change the complete implementation
 
-@Entity 
+@Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="transactions")
+@Table(name = "transactions")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="type")
+@DiscriminatorColumn(name = "type")
 public abstract class Transaction {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name="transaction_id", unique=true)
-	private Long transactionId;
-	
-	@Column(name="date")
-	private Date date;
-	
-	@Column(name="type", insertable = false, updatable = false)
-	public String type;
-	
-	@Column(name="approval_code")
-	private String approvalCode;
-	
-	@NonNull
-	@Column(name="amount")
-	public Double amount;
-	
-	@ManyToOne
-	@JoinColumn(name="account_id", nullable = false)
-	private Account account;
-	
-	public Transaction(Double amount)
-    {
-        this.amount = amount;
-        this.date = new Date();
-    }
-	
-	public Transaction(Date date, double amount, Account account, String approvalCode) {
-        this.date = date;
-        this.amount = amount;
-        this.account = account;
-        this.approvalCode = approvalCode;
-    }
+	@Column(name = "id", unique = true)
+	private Long id;
 
-	protected abstract void add(Transaction transaction);
-	
-	
-	
-	
+	@Column(name = "date")
+	private Date date;
+
+	@Column(name = "type", insertable = false, updatable = false)
+	public String type;
+
+	@Column(name = "approval_code")
+	private String approvalCode;
+
+	@NonNull
+	@Column(name = "amount")
+	public Double amount;
+
+	@ManyToOne
+	@JoinColumn(name = "account_id", nullable = false)
+	private Account account;
+
+	public Transaction(Double transaction) {
+		this.amount = transaction;
+		this.date = new Date();
+	}
+
+	public Transaction(Date date, double amount, Account account, String approvalCode) {
+		this.date = date;
+		this.amount = amount;
+		this.account = account;
+		this.approvalCode = approvalCode;
+	}
+
 }

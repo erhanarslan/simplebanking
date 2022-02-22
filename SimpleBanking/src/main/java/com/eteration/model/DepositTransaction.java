@@ -7,7 +7,7 @@ import javax.persistence.Table;
 //This class is a place holder you can change the complete implementation
 
 @Entity
-@DiscriminatorValue("DepositTransaction")
+
 public class DepositTransaction extends Transaction {
 	public DepositTransaction() {
         super();
@@ -18,10 +18,7 @@ public class DepositTransaction extends Transaction {
         this.setType("DepositTransaction");
     }
 
-	@Override
-	protected void add(Transaction transaction) {
-		
-		
-	}
+
+	
 
 }

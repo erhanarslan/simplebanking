@@ -16,11 +16,7 @@ public class WithdrawalTransaction extends Transaction {
         this.setType("WithdrawalTransaction");
     }
 
-	@Override
-	protected void add(Transaction transaction) {
-	
-		
-	}
+
     
 
 }
